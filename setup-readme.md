@@ -11,3 +11,7 @@
 * Login to Django Administration page (http://127.0.0.1:8000/admin) and add details of superuser in EC_Admins.
 * Navigate to http://127.0.0.1:8000 and Login as admin, add voter and add candidate details and logout.
 * Click on Register and fill voter registration form, record and upload video of 5-10 seconds for face recognition.
+
+<!-- pip install scikit-learn -->
+<!-- python -m venv myenv
+source myenv/bin/activate  # On Windows, use `myenv\Scripts\activate` -->

@@ -76,15 +76,28 @@ WSGI_APPLICATION = 'Digital_Voting.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Digital_Voting',
-        'USER': 'username',
-        'PASSWORD':'password',
-        'HOST':'localhost'
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'Digital_Voting',
+#         'USER': 'postgres',
+#         'PASSWORD':'postgres',
+#         'HOST':'localhost'
+#     }
+# }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'Digital_Voting',
+#         'USER': 'postgres',
+#         'PASSWORD':'postgres',
+#         'HOST':'localhost',
+#         'OPTIONS': {
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+#         },
+#     }
+# }
+
 
 
 # Password validation
