@@ -30,7 +30,7 @@ def register_vid(request):
             if Voters.objects.filter(voterid_no=voterid):
                 register_vid.v = Voters.objects.get(voterid_no=voterid)
                 user_phone = str(register_vid.v.mobile_no)
-                url = "http://2factor.in/API/V1/<api_key>/SMS/" + user_phone + "/AUTOGEN"
+                url = "http://2factor.in/API/V1/b998338a-4d76-11ee-addf-0200cd936042/SMS/" + user_phone + "/AUTOGEN"
                 response = requests.request("GET", url)
                 data = response.json()
                 request.session['otp_session_data'] = data['Details']
@@ -45,7 +45,7 @@ def register_vid(request):
 def otp(request):
     if (request.method == "POST"):
         userotp = request.POST['otp']
-        url = "http://2factor.in/API/V1/<api_key>/SMS/VERIFY/" + request.session[
+        url = "http://2factor.in/API/V1/b998338a-4d76-11ee-addf-0200cd936042/SMS/VERIFY/" + request.session[
             'otp_session_data'] + "/" + userotp
         response = requests.request("GET", url)
         data = response.json()
@@ -285,7 +285,7 @@ def vote(request):
                 vote.candidateid = request.POST['can']
                 vmob = Voters.objects.get(voterid_no=v_id)
                 vmobno = str(vmob.mobile_no)
-                url = "http://2factor.in/API/V1/<api_key>/SMS/" + vmobno + "/AUTOGEN"
+                url = "http://2factor.in/API/V1/b998338a-4d76-11ee-addf-0200cd936042/SMS/" + vmobno + "/AUTOGEN"
                 response = requests.request("GET", url)
                 data = response.json()
                 request.session['otp_session_data'] = data['Details']
@@ -305,7 +305,7 @@ def vote(request):
 def subvoteotp(request):
     if (request.method == "POST"):
         userotp = request.POST['otp']
-        url = "http://2factor.in/API/V1/<api_key>/SMS/VERIFY/" + request.session['otp_session_data'] + "/" + userotp
+        url = "http://2factor.in/API/V1/b998338a-4d76-11ee-addf-0200cd936042/SMS/VERIFY/" + request.session['otp_session_data'] + "/" + userotp
         response = requests.request("GET", url)
         data = response.json()
         if data['Status'] == "Success":

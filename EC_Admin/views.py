@@ -16,10 +16,14 @@ import itertools
 @login_required(login_url='home')
 @staff_member_required(login_url='home')
 def adminhome(request):
+    print("adminhome action")
     adminhome.username = request.session['admin_id']
+    print("adminhome username",adminhome.username)
     try:
         a = EC_Admins.objects.get(ecadmin_id=adminhome.username)
+        print("a",a)
         adminhome.adminimage = a.ecadmin_image
+        print("adminhome.adminimage",adminhome.adminimage)
         return render(request,'admin/adminhome.html',{'username':adminhome.username,'image':adminhome.adminimage})
     except:
         messages.info(request, 'Add admin details in EC_Admins table')
