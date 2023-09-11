@@ -1,6 +1,6 @@
 # New (with some requirement changes)
 
-certifi
+# certifi
 chardet==3.0.4
 Django
 # facerecog
@@ -12,7 +12,7 @@ psycopg2==2.8.6
 requests==2.22.0
 setuptools==41.0.1
 
-
+ 
 #Old file
 
 # certifi==2019.11.28

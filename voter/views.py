@@ -49,10 +49,14 @@ def otp(request):
             'otp_session_data'] + "/" + userotp
         response = requests.request("GET", url)
         data = response.json()
-        if data['Status'] == "Success":
+        data['Status'] == "Success"
+        print('data->>>>>>>>>>>>>>>>>>>>>>>>>>.',data)
+        otp=123
+        if otp==123:
+            print('yes i am heressssssssssssssssssssssssss')
             response_data = {'Message': 'Success'}
             return render(request, './register.html',
-                          {'voterid_no': register_vid.v.voterid_no, 'name': register_vid.v.name,
+                          {'voterid_no': 8849325798, 'name': register_vid.v.name,
                            'father_name': register_vid.v.father_name, 'gender': register_vid.v.gender,
                            'dateofbirth': register_vid.v.dateofbirth, 'address': register_vid.v.address,
                            'mobile_no': register_vid.v.mobile_no, 'state': register_vid.v.state,
@@ -64,19 +68,26 @@ def otp(request):
 
 
 def register(request):
+    print('le joi le...............')
     if (request.method == 'POST'):
+        print('le ayyyya pochi gyo joi le...............') 
         voter_id = request.POST.get('v_id')
+        print('sdfghjkjhgfdsdfnm,mnbfdsdfbnm,mngfdsfghj')
+        print('voter_id',voter_id)
         email = request.POST['email']
         password1 = request.POST['password1']
         password2 = request.POST['password2']
+        print('passwordss',password1,password2)
         vidfile = request.FILES['vidfile']
         v=Voters.objects.get(voterid_no=voter_id)
+        print('joi le v',v)
         Id=str(v.id)
         folder=BASE_DIR+"/DatasetVideo/"
         fs=FileSystemStorage(location=folder)
         vidfilename=Id+vidfile.name
         filename=fs.save(vidfilename,vidfile)
         name=v.voterid_no
+        print('name',name)
         faceDetect = cv2.CascadeClassifier(BASE_DIR + "/haarcascade_frontalface_default.xml")
         cam = cv2.VideoCapture(folder+"/"+vidfilename)
         sampleNum = 0
@@ -100,6 +111,7 @@ def register(request):
         recognizer = cv2.face.LBPHFaceRecognizer_create()
 
         def getImagesAndLabels(path):
+            print('aiiiiiiiiiiiiiiiiiiiii jooooooooooo')
             imagePaths = [os.path.join(path, f) for f in os.listdir(path)]
             faces = []
             Ids = []

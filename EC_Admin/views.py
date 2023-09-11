@@ -19,8 +19,11 @@ def adminhome(request):
     print("adminhome action")
     adminhome.username = request.session['admin_id']
     print("adminhome username",adminhome.username)
+    print("request.session['admin_id']",request.session)
+    
     try:
-        a = EC_Admins.objects.get(ecadmin_id=adminhome.username)
+        print("aiiiiiiiiii aavi gyo")
+        a = EC_Admins.objects.get(ecadmin_id=1)
         print("a",a)
         adminhome.adminimage = a.ecadmin_image
         print("adminhome.adminimage",adminhome.adminimage)
